@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belizario Medical Clinic</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+    <!-- Link to Font Awesome for icons -->
+    <!-- Updated Font Awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            <h1><i class="fas fa-caduceus"></i> Belizario Medical Clinic</h1> <!-- Added Caduceus symbol -->
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#services-section">Services</a></li> <!-- Link to services section -->
+            <li class="dropdown" id="appointments">
+                <a href="#">Appointments</a>
+                <ul class="dropdown-content" style="display:none;">
+                    <li><a href="login.php">Clinic Visit</a></li>
+                    <li><a href="login.php">Online Consult</a></li>
+                </ul>
+            </li>
+            <li><a href="#">About</a></li>
+            <li><a href="login.php">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Welcome to Belizario Medical Clinic</h2>
+            <p>Your health is our priority. Book your appointment today.</p>
+            <a href="login.php" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services-section" class="services-section">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-item">
+                <i class="fas fa-stethoscope fa-3x" style="color: #388dab;"></i>
+                <h3>Medical Consult</h3>
+                <p>Professional medical consultations to assess your health and provide expert advice.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-file-medical fa-3x" style="color: #388dab;"></i>
+                <h3>Medical Certificate</h3>
+                <p>We issue medical certificates for work, school, or other requirements.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-prescription-bottle-alt fa-3x" style="color: #388dab;"></i>
+                <h3>Prescriptions</h3>
+                <p>Get your prescriptions easily for ongoing treatment or new diagnoses.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-vials fa-3x" style="color: #388dab;"></i>
+                <h3>Laboratory Request and Results Interpretation</h3>
+                <p>Request laboratory tests and receive detailed interpretation of your results.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+<script>
+    // Toggle dropdown visibility on clicking "Appointments"
+    document.getElementById("appointments").addEventListener("click", function(event) {
+        const dropdownContent = this.querySelector(".dropdown-content");
+
+        // Toggle the dropdown visibility
+        if (dropdownContent.style.display === "none" || dropdownContent.style.display === "") {
+            dropdownContent.style.display = "block";
+        } else {
+            dropdownContent.style.display = "none";
+        }
+
+        // Stop event propagation so clicking inside the dropdown doesn't close it immediately
+        event.stopPropagation();
+    });
+
+    // Close the dropdown when clicking outside
+    document.addEventListener("click", function(event) {
+        const dropdown = document.getElementById("appointments");
+        const dropdownContent = dropdown.querySelector(".dropdown-content");
+
+        if (!dropdown.contains(event.target)) {
+            dropdownContent.style.display = "none";
+        }
+    });
+</script>
+</html>

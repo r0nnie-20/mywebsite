@@ -1,0 +1,229 @@
+/* CSS Variables for Theme Management */
+:root {
+    --primary-color: #71d0f2;
+    --secondary-color: #f15048;
+    --text-color: #ffffff;
+    --subtext-color: #e3dcdc;
+    --bg-gradient-start: rgba(44, 62, 80, 0.7);
+    --bg-gradient-end: rgba(0, 0, 0, 0.7);
+    --font-family: 'Arial', Helvetica, sans-serif;
+    --transition-speed: 0.3s;
+}
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+body {
+    overflow-x: hidden;
+    color: var(--text-color);
+    background-color: #2c3e50;
+    background: linear-gradient(var(--bg-gradient-start), var(--bg-gradient-end)), url('images/bg.png') no-repeat center center/cover;
+}
+
+/* Navigation Bar Styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-gradient-start);
+    padding: 20px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav h1 {
+    color: var(--primary-color);
+    font-size: 28px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+}
+
+nav h1 i {
+    margin-right: 10px; /* Space between icon and text */
+    color: var(--secondary-color); /* Color for the Caduceus symbol */
+    font-size: 1.5em; /* Adjust icon size */
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav .nav-links li {
+    position: relative;
+}
+
+nav .nav-links li a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 10px 15px;
+    text-transform: uppercase;
+    transition: background-color var(--transition-speed);
+}
+
+nav .nav-links li a:hover {
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}
+
+/* Dropdown Menu */
+nav .dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--bg-gradient-start);
+    min-width: 160px;
+    top: 40px;
+    z-index: 1;
+    border-radius: 5px;
+}
+
+nav .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+nav .dropdown-content li {
+    list-style-type: none;
+}
+
+nav .dropdown-content li a {
+    padding: 12px 16px;
+    display: block;
+    text-align: left;
+}
+
+nav .dropdown-content li a:hover {
+    background-color: var(--primary-color);
+    color: #000;
+}
+
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.hero-content {
+    text-align: center;
+    color: var(--text-color);
+}
+
+.hero h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    letter-spacing: 1.5px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.hero .btn {
+    padding: 12px 25px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color var(--transition-speed);
+}
+
+.hero .btn:hover {
+    background-color: var(--primary-color);
+}
+/* Services Section */
+.services-section {
+    min-height: 100vh; /* Ensure the section has enough height */
+    padding: 60px 20px;
+    background: linear-gradient(var(--bg-gradient-start), var(--bg-gradient-end)); /* Same gradient as hero section */
+    color: var(--text-color);
+    text-align: center;
+}
+
+.services-section h2 {
+    font-size: 32px;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+.services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.service-item {
+    background-color: #fff;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    color: #000; /* Set text color for readability */
+    text-align: center;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+}
+
+.service-item h3 {
+    font-size: 24px;
+    color: #388dab;
+    margin-bottom: 15px;
+}
+
+.service-item p {
+    color: #333;
+}
+
+.service-item i {
+    margin-bottom: 15px;
+}
+
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    nav .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .hero h2 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero .btn {
+        font-size: 14px;
+    }
+}
